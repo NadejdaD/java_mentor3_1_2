@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equal="Content-Type" content="text/thml; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <title>My page</title>
+</head>
+<body>
+
+<div class="container-fluid bg-dark">
+    <nav class="navbar navbar-dark sticky-top py-1 m-0">
+        <a class="navbar-brand"><b>
+            <tr th:text="${user.email}"></tr>
+                </b>
+            <tr> with roles:</tr>
+            <tr th:text="${roles}"></tr>
+        </a>
+        <a class="nav-link " style="color: #808080" th:href="'/logout'">Logout</a>
+    </nav>
+</div>
+
+<div class="container-fluid h-100 m-0">
+    <div class="row">
+        <div class="col-md-2 m-0 p-0">
+            <br>
+            <ul class="nav flex-column nav-pills" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#" role="tab"
+                       aria-controls="user_panel" aria-selected="false">User</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container col-md-10 bg-light px-4 py-3" style="background-size: unset">
+            <h1>User information page</h1>
+            <div class="border border-muted rounded">
+                <div class="border rounded-top border-right-0 border-top-0 border-left-0
+                         border-muted px-3 pt-2 pb-1" style="background-color: #f1f1f1">
+                    <h5>About user</h5>
+                </div>
+                <div class="container col-md p-4 m-0">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:object="${user}">
+                            <td th:text="${user.id}"/>
+                            <td th:text="${user.firstName}"/>
+                            <td th:text="${user.lastName}"/>
+                            <td th:text="${user.age}"/>
+                            <td th:text="${user.email}"/>
+                            <td th:text="${user.roles}"/>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.0.js"
+        integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
